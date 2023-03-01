@@ -19,6 +19,7 @@ const AddressForm = ({ checkoutToken }) => {
 
         console.log(countries)
         setShippingCountries(countries);
+        setShippingCountry(Object.keys(countries)[0]);
     }
 
     useEffect(() => {
@@ -37,12 +38,13 @@ const AddressForm = ({ checkoutToken }) => {
                     <FormInput required name="email" label='Email' />
                     <FormInput required name="city" label='City' />
                     <FormInput required name="zip" label='ZIP / Postal code' />
-                    {/* <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6}>
                         <InputLabel>Shipping Country</InputLabel>
-                        <Select value={} fullWidth onChange={}>
-                            <MenuItem key={} value={}>
-                                Select Me
-                            </MenuItem>
+                        <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+                            <InputLabel>Shipping Country</InputLabel>
+                            <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}
+                                {console.log(Object.entries(shippingCountries))}
+                            
                         </Select>
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -60,7 +62,7 @@ const AddressForm = ({ checkoutToken }) => {
                                 Select Me
                             </MenuItem>
                         </Select>
-                    </Grid> */}
+                    </Grid>
                 </Grid>
             </form>
         </FormProvider>
